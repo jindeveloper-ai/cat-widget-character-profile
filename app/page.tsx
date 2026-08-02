@@ -214,7 +214,7 @@ export default function Home() {
             <section className="duality"><span className="section-label">HIS DUALITY</span><div><article><small>{c.everyone}</small><strong>{c.coldPrince[0]}<br />{c.coldPrince[1]}</strong></article><i>×</i><article><small>{c.onlyYou}</small><strong>{c.needyCat[0]}<br />{c.needyCat[1]}</strong></article></div></section>
             <div className="tags">{c.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
             <blockquote>{c.confession[0]}<br />{c.confession[1]}</blockquote>
-            <a className="cta" href="https://www.whif.io/characters/create" target="_blank" rel="noreferrer">{c.cta} <span>↗</span></a>
+            <a className="cta" href="https://www.whif.io/characters/234d0b2b-e2e2-4288-a0d3-c8ed94068e52" target="_blank" rel="noreferrer">{c.cta} <span>↗</span></a>
             <section className="creator-contact" aria-labelledby="creator-contact-title"><span>CREATOR CONTACT</span><h3 id="creator-contact-title">{c.contactTitle}</h3><p>{c.contactDesc}</p><div><a href="https://www.instagram.com/suji.n_creating/" target="_blank" rel="noreferrer"><small>Instagram DM</small><strong>@suji.n_creating</strong><em>↗</em></a><a href="mailto:su.jin.developer@gmail.com"><small>Email</small><strong>su.jin.developer@gmail.com</strong><em>↗</em></a></div></section>
             <p className="font-credit">SUIT · Gowun Batang / Font source: Noonnu</p>
           </div>}
