@@ -66,6 +66,54 @@ const momentText = {
   ja: [["許したわけではありません", "耳を撫でた瞬間 · A"], ["今回だけです", "耳を撫でた瞬間 · B"], ["袖を離せなかった夜", "背を向けるあなたを引き止めて"], ["膝の上のシャム猫", "完全獣人化のあと"], ["待っていたわけではありません", "宮の前で見つかった夜"], ["婚姻の勅書", "穏やかな顔、鮮明な嫉妬"], ["既読から12分", "皇太子の体面が崩れ始めた"], ["宮の前、深夜", "通りかかっただけという言い訳"], ["露わになった本心", "隠しきれなかった表情"], ["愛を語る夜", "あなただけに見せる顔"], ["嫉妬も気高く", "冷たい視線、熱い本心"]],
 } as const;
 
+const feedUi = {
+  ko: { label: "SIAM PALACE · PRIVATE FEED", account: "@narin.of.siam", official: "황실 공식 기록", courtNotes: "궁정 댓글", ago: "시암 황궁 · 방금 전", open: "게시물 크게 보기", archive: "폐하와 궁정 사람들이 남긴 11개의 기록" },
+  en: { label: "SIAM PALACE · PRIVATE FEED", account: "@narin.of.siam", official: "Official royal record", courtNotes: "Court comments", ago: "Siam Palace · Just now", open: "Open post", archive: "Eleven records left by Your Majesty and the court" },
+  ja: { label: "SIAM PALACE · PRIVATE FEED", account: "@narin.of.siam", official: "王室公式記録", courtNotes: "宮廷のコメント", ago: "シャム王宮 · たった今", open: "投稿を拡大表示", archive: "陛下と宮廷の人々が残した11の記録" },
+} as const;
+
+const courtComments = {
+  ko: [
+    [["폐하", "귀는 거짓말을 못 하는구나."], ["궁정 시종", "전하께서 벌써 세 번째 같은 사진을 확인하셨습니다."]],
+    [["폐하", "이번만이라고 한 것이 벌써 다섯 번째다."], ["황실 의관", "귀 끝의 체온이 평소보다 높습니다."]],
+    [["폐하", "놓으라 했는데 더 세게 잡더구나."], ["근위대장", "저희는 아무것도 보지 못했습니다."]],
+    [["폐하", "내 무릎이 그렇게 편하더냐."], ["궁정 시종", "골골송은 황실 기밀로 분류하겠습니다."]],
+    [["폐하", "지나가던 길치고는 오래 머물렀구나."], ["침전 나인", "정확히 마흔두 분이었습니다."]],
+    [["폐하", "혼인 칙서가 그리 마음에 들지 않았나?"], ["대신", "전하의 미소가 가장 무서웠던 날입니다."]],
+    [["폐하", "열두 분은 오래 기다린 것도 아니지."], ["서기관", "메시지 삭제 기록만 일곱 건입니다."]],
+    [["폐하", "문을 두드렸으면 더 빨리 열어주었을 텐데."], ["근위병", "전하께서는 지나가던 중이라고 하셨습니다."]],
+    [["폐하", "이 표정도 숨길 생각이었느냐."], ["궁정 화가", "초상화보다 솔직한 얼굴이었습니다."]],
+    [["폐하", "다시 말해 보거라. 이번엔 눈을 보고."], ["침전 나인", "저희는 조용히 문을 닫았습니다."]],
+    [["폐하", "질투하는 모습도 제법 귀엽구나."], ["대신", "오늘 조회는 평소보다 서늘했습니다."]],
+  ],
+  en: [
+    [["Your Majesty", "Those ears have never learned to lie."], ["Royal Attendant", "His Highness has checked this post three times."]],
+    [["Your Majesty", "‘Only this once’ has happened five times now."], ["Royal Physician", "The tips of his ears are warmer than usual."]],
+    [["Your Majesty", "I told you to let go. You held tighter."], ["Captain of the Guard", "We saw absolutely nothing."]],
+    [["Your Majesty", "Is my lap truly that comfortable?"], ["Royal Attendant", "The purring has been classified as a state secret."]],
+    [["Your Majesty", "A long stay for someone merely passing by."], ["Chamber Maid", "Forty-two minutes, to be precise."]],
+    [["Your Majesty", "Did the marriage edict displease you so?"], ["Minister", "It was His Highness's most frightening smile."]],
+    [["Your Majesty", "Twelve minutes is hardly a long wait."], ["Royal Scribe", "Seven deleted messages were recorded."]],
+    [["Your Majesty", "Had you knocked, I would have opened sooner."], ["Palace Guard", "His Highness said he was passing through."]],
+    [["Your Majesty", "You meant to hide this expression too?"], ["Court Painter", "A face more honest than any portrait."]],
+    [["Your Majesty", "Say it once more. Look at me this time."], ["Chamber Maid", "We quietly closed the door."]],
+    [["Your Majesty", "Even your jealousy is rather endearing."], ["Minister", "The morning court felt colder than usual."]],
+  ],
+  ja: [
+    [["陛下", "その耳は嘘をつけないようだな。"], ["宮廷侍従", "殿下はもう三度も同じ投稿をご覧です。"]],
+    [["陛下", "『今回だけ』は、もう五回目だ。"], ["王室医官", "耳の先がいつもより熱いようです。"]],
+    [["陛下", "離せと言ったのに、さらに強く掴んだな。"], ["近衛隊長", "我々は何も見ておりません。"]],
+    [["陛下", "私の膝はそんなに心地よいのか。"], ["宮廷侍従", "喉を鳴らした件は王室機密とします。"]],
+    [["陛下", "通りすがりにしては長居だったな。"], ["寝殿女官", "正確には四十二分でした。"]],
+    [["陛下", "婚姻の勅書がそんなに気に入らなかったか？"], ["大臣", "殿下の笑顔が最も恐ろしい日でした。"]],
+    [["陛下", "十二分など、長く待ったうちに入らぬ。"], ["書記官", "削除された文は七件です。"]],
+    [["陛下", "扉を叩けば、もっと早く開けたものを。"], ["近衛兵", "殿下は通りかかっただけと仰せでした。"]],
+    [["陛下", "この表情まで隠すつもりだったのか。"], ["宮廷画家", "どの肖像画より正直なお顔でした。"]],
+    [["陛下", "もう一度言ってみよ。今度は目を見て。"], ["寝殿女官", "私どもは静かに扉を閉めました。"]],
+    [["陛下", "嫉妬する姿もなかなか可愛いものだ。"], ["大臣", "今朝の朝議はいつもより冷えました。"]],
+  ],
+} as const;
+
 function detectLocale(): Locale {
   const languages = navigator.languages?.length ? navigator.languages : [navigator.language];
   for (const language of languages) {
@@ -79,12 +127,13 @@ export default function Home() {
   const [tab, setTab] = useState<Tab>("talk");
   const [locale, setLocale] = useState<Locale>("ko");
   const [reply, setReply] = useState<number | null>(null);
-  const [selectedMoment, setSelectedMoment] = useState(0);
   const [preview, setPreview] = useState<number | null>(null);
   const screenRef = useRef<HTMLDivElement>(null);
   const c = ui[locale];
   const messages = replies[locale];
   const moments = momentText[locale].map(([title, note], index) => ({ src: momentSources[index], title, note }));
+  const feed = feedUi[locale];
+  const comments = courtComments[locale];
 
   useEffect(() => {
     const detected = detectLocale();
@@ -145,10 +194,18 @@ export default function Home() {
           </div>}
 
           {tab === "moments" && <div className="moments-panel">
-            <div className="panel-title"><span>PRIVATE ARCHIVE</span><h2>{c.archiveTitle[0]}<br />{c.archiveTitle[1]}</h2><p>{c.archiveDesc}</p></div>
-            <div className="archive-label"><span>SCREENSHOT ORDER</span><small>{c.swipe}</small></div>
-            <div className="archive-row" aria-label={c.listAria}>{moments.map((item, index) => <button key={item.src} className={selectedMoment === index ? "selected" : ""} onClick={() => setSelectedMoment(index)} aria-label={`${index + 1}${c.select}: ${item.title}`}><img src={item.src} alt="" /><span>{String(index + 1).padStart(2, "0")}</span></button>)}</div>
-            <button className="archive-preview" onClick={() => setPreview(selectedMoment)} aria-label={`${moments[selectedMoment].title}${c.large}`}><img src={moments[selectedMoment].src} alt={moments[selectedMoment].title} /><span className="preview-index">{String(selectedMoment + 1).padStart(2, "0")} / 11</span><span className="preview-copy"><small>{moments[selectedMoment].note}</small><strong>{moments[selectedMoment].title}</strong><em>{c.viewLarge}</em></span></button>
+            <div className="feed-intro"><span>{feed.label}</span><h2>{c.archiveTitle[0]}<br />{c.archiveTitle[1]}</h2><p>{feed.archive}</p><div><i>✦</i><span>{feed.official}</span><small>01—11</small></div></div>
+            <div className="court-feed" aria-label={c.listAria}>{moments.map((item, index) => <article className="court-post" key={item.src}>
+              <header><img src="/images/hyeon-profile.png" alt="" /><div><strong>{c.character}<i>✦</i></strong><small>{feed.account}</small></div><span>{String(index + 1).padStart(2, "0")}</span></header>
+              <button className="feed-image" onClick={() => setPreview(index)} aria-label={`${item.title} · ${feed.open}`}><img src={item.src} alt={item.title} /><span>{c.viewLarge}</span></button>
+              <div className="feed-body">
+                <div className="feed-actions" aria-hidden="true"><span>♡</span><span>◌</span><span>⌁</span><i>◇</i></div>
+                <p className="feed-caption"><strong>{c.character}</strong>{item.note}</p>
+                <h3>{item.title}</h3>
+                <div className="court-notes"><span>{feed.courtNotes}</span>{comments[index].map(([author, text], commentIndex) => <p key={author}><i className={commentIndex === 0 ? "majesty" : "court"}>{author.slice(0, 1)}</i><span><strong>{author}</strong>{text}</span></p>)}</div>
+                <small className="feed-time">{feed.ago}</small>
+              </div>
+            </article>)}</div>
           </div>}
 
           {tab === "profile" && <div className="profile-panel">
