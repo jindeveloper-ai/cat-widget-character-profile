@@ -15,7 +15,7 @@ const ui = {
     heroAlt: "청회색 눈으로 카메라를 바라보는 황태자 나린", heroQuote: "“기다린 것이 아닙니다.”", heroPlace: "— 방금 전, 황태자 처소", majesty: "폐하.", busy: "…아~주 많이 바쁘신 모양입니다.", oneReply: ["답장 하나 정도는 내려주셔도", "나라가 망하진 않을 텐데요."], deleted: "메시지를 삭제했습니다", typo: "오타입니다. 실수.", read: "읽음",
     doorAlt: "황제의 처소 앞에서 기다리는 나린", detected: "현관 감지됨", atDoor: "누군가 문 앞에 있습니다.", reset: "다른 답장 보내기 ↺", quickAria: "빠른 답장", yourReply: "폐하의 답장",
     archiveTitle: ["당신만 아는", "나린의 순간들"], archiveDesc: "스크린샷의 첫 줄 순서 그대로, 11개의 장면.", swipe: "옆으로 넘겨보세요 · 01—11", listAria: "나린 이미지 미리보기 목록", select: "번 이미지 선택", large: "크게 미리보기", viewLarge: "크게 보기 ↗",
-    profileAlt: "황태자 예복을 입은 나린", backTalk: "대화로 돌아가기", crownPrince: "라타나 제국 황태자", profileQuote: ["“관심 없는 척하는 데에는", "재능이 없습니다.”"], age: "나이", height: "키", blood: "혈통", bloodValue: "샴고양이 수인", scent: "향", scentValue: "복숭아 · 바닐라 · 백단향",
+    profileAlt: "황태자 예복을 입은 나린", backTalk: "대화로 돌아가기", crownPrince: "시암 제국 황태자", profileQuote: ["“관심 없는 척하는 데에는", "재능이 없습니다.”"], age: "나이", height: "키", blood: "혈통", bloodValue: "샴고양이 수인", scent: "향", scentValue: "복숭아 · 바닐라 · 백단향",
     everyone: "모두에게", coldPrince: ["차갑고 오만한", "얼음 황태자"], onlyYou: "오직 당신에게", needyCat: ["읽씹을 못 견디는", "샴고양이"], tags: ["#집착", "#츤데레", "#분리불안", "#궁정로맨스", "#얼음왕자"], confession: ["“폐하가 돌아서면, 체면 같은 것은", "아무래도 좋습니다.”"], cta: "위프에서 나린 만나기",
     contactTitle: "작가에게 연락하기", contactDesc: "인스타그램 DM 또는 이메일로 연락해 주세요.", navAria: "주요 메뉴", talk: "대화", moments: "순간", profile: "나린", close: "미리보기 닫기", prev: "이전 이미지", next: "다음 이미지", dialog: "이미지 미리보기",
   },
@@ -25,7 +25,7 @@ const ui = {
     heroAlt: "Crown Prince Narin looking into the camera with blue-gray eyes", heroQuote: "“I was not waiting.”", heroPlace: "— Just now, the crown prince's chambers", majesty: "Your Majesty.", busy: "…You must be terribly busy.", oneReply: ["One reply would hardly", "bring the empire to ruin."], deleted: "A message was deleted", typo: "A typo. Nothing more.", read: "Read",
     doorAlt: "Narin waiting outside the emperor's chambers", detected: "ENTRY DETECTED", atDoor: "Someone is waiting outside.", reset: "Choose another reply ↺", quickAria: "Quick replies", yourReply: "YOUR REPLY",
     archiveTitle: ["The Narin", "only you know"], archiveDesc: "Eleven scenes, in the exact order of your first row.", swipe: "Swipe to explore · 01—11", listAria: "Narin image preview list", select: " image, select", large: " large preview", viewLarge: "View larger ↗",
-    profileAlt: "Narin in imperial crown prince robes", backTalk: "Return to chat", crownPrince: "Crown Prince of Rattana", profileQuote: ["“Pretending not to care", "was never my talent.”"], age: "Age", height: "Height", blood: "Bloodline", bloodValue: "Siamese cat shifter", scent: "Scent", scentValue: "Peach · vanilla · sandalwood",
+    profileAlt: "Narin in imperial crown prince robes", backTalk: "Return to chat", crownPrince: "Crown Prince of Siam", profileQuote: ["“Pretending not to care", "was never my talent.”"], age: "Age", height: "Height", blood: "Bloodline", bloodValue: "Siamese cat shifter", scent: "Scent", scentValue: "Peach · vanilla · sandalwood",
     everyone: "To everyone", coldPrince: ["Cold and proud", "the ice prince"], onlyYou: "Only to you", needyCat: ["Cannot bear silence", "a Siamese cat"], tags: ["#obsessive", "#tsundere", "#separationanxiety", "#courtromance", "#iceprince"], confession: ["“When Your Majesty turns away,", "dignity ceases to matter.”"], cta: "Meet Narin on WHIF",
     contactTitle: "Contact the creator", contactDesc: "Reach out by Instagram DM or email.", navAria: "Main navigation", talk: "Talk", moments: "Moments", profile: "Narin", close: "Close preview", prev: "Previous image", next: "Next image", dialog: "image preview",
   },
@@ -35,7 +35,7 @@ const ui = {
     heroAlt: "青灰色の瞳でカメラを見つめる皇太子ナリン", heroQuote: "「待っていたわけではありません。」", heroPlace: "— たった今、皇太子の宮", majesty: "陛下。", busy: "…ずいぶん、お忙しいようですね。", oneReply: ["お返事のひとつで", "国が滅びるわけでもないでしょう。"], deleted: "メッセージを削除しました", typo: "誤字です。ただのミスです。", read: "既読",
     doorAlt: "皇帝の宮の前で待つナリン", detected: "玄関で感知", atDoor: "誰かが扉の前にいます。", reset: "別の返信を選ぶ ↺", quickAria: "クイック返信", yourReply: "陛下の返信",
     archiveTitle: ["あなただけが知る", "ナリンの瞬間"], archiveDesc: "スクリーンショットの一列目と同じ順番、11の場面。", swipe: "横にスワイプ · 01—11", listAria: "ナリン画像プレビュー一覧", select: "番の画像を選択", large: "を拡大表示", viewLarge: "大きく見る ↗",
-    profileAlt: "皇太子の礼服を纏ったナリン", backTalk: "トークに戻る", crownPrince: "ラタナ帝国 皇太子", profileQuote: ["「興味のないふりをする才能は、", "私にはありません。」"], age: "年齢", height: "身長", blood: "血統", bloodValue: "シャム猫の獣人", scent: "香り", scentValue: "桃 · バニラ · 白檀",
+    profileAlt: "皇太子の礼服を纏ったナリン", backTalk: "トークに戻る", crownPrince: "シャム帝国 皇太子", profileQuote: ["「興味のないふりをする才能は、", "私にはありません。」"], age: "年齢", height: "身長", blood: "血統", bloodValue: "シャム猫の獣人", scent: "香り", scentValue: "桃 · バニラ · 白檀",
     everyone: "すべての人に", coldPrince: ["冷たく傲慢な", "氷の皇太子"], onlyYou: "あなただけに", needyCat: ["既読無視に弱い", "シャム猫"], tags: ["#執着", "#ツンデレ", "#分離不安", "#宮廷ロマンス", "#氷の皇子"], confession: ["「陛下が背を向けるなら、体面など", "どうでもよいのです。」"], cta: "WHIFでナリンに会う",
     contactTitle: "作者に連絡する", contactDesc: "InstagramのDMまたはメールでご連絡ください。", navAria: "メインメニュー", talk: "トーク", moments: "瞬間", profile: "ナリン", close: "プレビューを閉じる", prev: "前の画像", next: "次の画像", dialog: "画像プレビュー",
   },
@@ -117,7 +117,7 @@ export default function Home() {
       <section className="editorial" aria-label={c.editorialAria}>
         <div className="eyebrow"><span>WHIF ORIGINAL</span><span>01</span></div>
         <div className="editorial-copy"><p className="kicker">{c.kicker}</p><h1>{c.headline[0]}<br />{c.headline[1]}</h1><p className="intro">{c.intro[0]}<br />{c.intro[1]}</p></div>
-        <div className="name-lockup"><span>NARIN</span><strong>{c.character}</strong><em>RATANA CROWN PRINCE</em></div>
+        <div className="name-lockup"><span>NARIN</span><strong>{c.character}</strong><em>SIAM CROWN PRINCE</em></div>
       </section>
 
       <section className="device" aria-label={c.messengerAria}>
