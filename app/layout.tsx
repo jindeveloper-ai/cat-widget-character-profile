@@ -4,19 +4,19 @@ import "./globals.css";
 
 const copy = {
   ko: {
-    title: "이현 — 읽씹을 못 견디는 황태자",
-    description: "차갑고 오만한 황태자, 당신 앞에서만 무너지는 샴고양이 수인 이현을 만나보세요.",
-    alt: "읽씹 12분째, 황태자가 무너졌다 — 이현",
+    title: "나린 — 읽씹을 못 견디는 황태자",
+    description: "차갑고 오만한 황태자, 당신 앞에서만 무너지는 샴고양이 수인 나린을 만나보세요.",
+    alt: "읽씹 12분째, 황태자가 무너졌다 — 나린",
   },
   en: {
-    title: "Lee Hyeon — The Crown Prince Who Hates Being Left on Read",
-    description: "Meet Lee Hyeon, the proud Siamese cat-shifter prince who only lets his guard down for you.",
-    alt: "Left on read for 12 minutes — Lee Hyeon",
+    title: "Narin — The Crown Prince Who Hates Being Left on Read",
+    description: "Meet Narin, the proud Siamese cat-shifter prince who only lets his guard down for you.",
+    alt: "Left on read for 12 minutes — Narin",
   },
   ja: {
-    title: "イ・ヒョン — 既読無視に耐えられない皇太子",
-    description: "冷たく傲慢な皇太子、あなただけに弱さを見せるシャム猫の獣人イ・ヒョンに出会ってください。",
-    alt: "既読無視から12分、皇太子が崩れた — イ・ヒョン",
+    title: "ナリン — 既読無視に耐えられない皇太子",
+    description: "冷たく傲慢な皇太子、あなただけに弱さを見せるシャム猫の獣人ナリンに出会ってください。",
+    alt: "既読無視から12分、皇太子が崩れた — ナリン",
   },
 } as const;
 
