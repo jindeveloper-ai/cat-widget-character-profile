@@ -19,6 +19,7 @@ jobs:
       - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38
         with:
           node-version: "24"
+      - run: npm ci
       - uses: j178/prek-action@4e14d07f9231acabce116ccfca13b13dd9755ece
 
   native:
