@@ -137,8 +137,9 @@ export default function Home() {
 
   useEffect(() => {
     const detected = detectLocale();
-    setLocale(detected);
     document.documentElement.lang = detected;
+    const frame = window.requestAnimationFrame(() => setLocale(detected));
+    return () => window.cancelAnimationFrame(frame);
   }, []);
 
   useEffect(() => { screenRef.current?.scrollTo({ top: 0 }); }, [tab]);
