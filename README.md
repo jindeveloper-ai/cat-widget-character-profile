@@ -1,100 +1,49 @@
-# vinext-starter
+# Narin · 캐릭터 프로필과 메신저 데모
 
-A clean full-stack starter running on
-[vinext](https://github.com/cloudflare/vinext), with optional Cloudflare D1 and
-Drizzle support.
+가상의 캐릭터 나린을 소개하는 한국어·영어·일본어 웹 프로필입니다. 소개, 메신저 형태의 대화, 이미지 피드와 게시물 확대 보기를 한 화면에서 탐색하도록 구성했습니다.
 
-## Prerequisites
+![Narin 캐릭터 프로필 미리보기](public/og.png)
 
-- Node.js `>=22.13.0`
+## 실행
 
-## Quick Start
+Node.js 22.13 이상(권장 24)과 npm이 필요합니다.
 
-```bash
-npm install
+```sh
+npm ci
 npm run dev
+```
+
+터미널에 표시되는 로컬 주소를 브라우저에서 엽니다. 상단 언어 선택으로 한국어·영어·일본어를 바꾸고, 메뉴에서 프로필·메시지·피드를 살펴볼 수 있습니다. 피드의 이미지를 누르면 게시물을 크게 봅니다.
+
+메시지와 빠른 답장은 미리 준비한 캐릭터 콘텐츠를 사용하는 **프런트엔드 데모**입니다. 실제 SNS 계정·DM 서버·생성형 AI 대화 API에 연결되지 않습니다. 기본 실행에는 API 키나 데이터베이스가 필요하지 않습니다.
+
+## 구현
+
+- React·TypeScript와 vinext/Vite를 사용한 서버 렌더링
+- 한국어·영어·일본어 UI와 언어별 캐릭터 콘텐츠
+- 모바일 메신저 형태의 탐색, 빠른 답장, 11개 게시물의 이미지 피드
+- 키보드로 조작할 수 있는 메뉴·버튼과 이미지 확대 화면
+- Cloudflare Worker를 대상으로 하는 빌드 구성
+
+`app/page.tsx`가 캐릭터 콘텐츠와 인터랙션을, `app/globals.css`가 화면 스타일을 담당합니다. `worker/index.ts`는 서버 렌더링과 이미지 요청을 처리합니다. `public/`에는 화면에 사용하는 에셋이 들어 있습니다.
+
+## 검증
+
+```sh
+npm run lint
+npm test
 npm run build
+prek run --files README.md package.json package-lock.json tests/rendered-html.test.mjs
 ```
 
-This starter does not use `wrangler.jsonc`.
+`npm test`는 먼저 빌드한 뒤 로컬 workerd에서 실제 Cloudflare Worker를 실행하여 HTML 메타데이터와 접근 가능한 메신저 구조를 확인합니다. 테스트는 무작위 loopback 포트만 사용하고 호스팅 중인 사이트에는 배포하지 않습니다.
 
-## Included Shape
+일부 기존 이미지에 대해 Next.js 이미지 최적화 권고 경고가 남아 있으며 lint 오류는 아닙니다. 실물 모바일 기기의 전체 상호작용·스크린리더 검수까지 이 테스트가 보증하지는 않습니다.
 
-- edit site code under `app/`
-- `.openai/hosting.json` declares optional Sites D1 and R2 bindings
-- `vite.config.ts` simulates declared bindings for local development
-- `db/schema.ts` starts intentionally empty
-- `examples/d1/` contains an optional D1 example surface
-- `drizzle.config.ts` supports local migration generation when needed
+## 공개 범위와 보안
 
-## Workspace Auth Headers
+이 저장소에는 가상 캐릭터 콘텐츠·공개용 에셋·제작자 연락 링크가 포함됩니다. 개인 API 키·비밀번호·실제 채팅 DB는 포함하지 않습니다. `.openai/hosting.json`의 프로젝트 ID는 배포 리소스 식별자이며 인증키가 아닙니다. 로컬 상태와 `.env*` 파일은 Git에서 제외합니다.
 
-Signed-in visitors receive both `oai-authenticated-user-id` and `oai-authenticated-user-email`. Private Sites require every visitor to sign in; public Sites may also have anonymous visitors, for whom neither header is present.
+템플릿의 선택적 D1/R2 구성과 인증 도우미는 남아 있지만 현재 캐릭터 페이지는 이를 사용하지 않습니다. 외부 호스팅 시에는 직접 관리하는 서비스의 접근 정책과 비밀 저장소를 별도로 설정해야 합니다.
 
-The user ID is stable for the same user on the same Site and different across Sites. Email and name are intended for display or contact purposes.
-
-SIWC-authenticated workspace sites may also receive
-`oai-authenticated-user-full-name` when the user's SIWC profile has a non-empty
-`name` claim. The full-name value is percent-encoded UTF-8 and is accompanied by
-`oai-authenticated-user-full-name-encoding: percent-encoded-utf-8`.
-
-Treat the full name as optional and fall back to email when it is absent:
-
-```tsx
-import { headers } from "next/headers";
-
-export default async function Home() {
-  const requestHeaders = await headers();
-  const userId = requestHeaders.get("oai-authenticated-user-id");
-  const email = requestHeaders.get("oai-authenticated-user-email");
-  const encodedFullName = requestHeaders.get("oai-authenticated-user-full-name");
-  const fullName =
-    encodedFullName &&
-    requestHeaders.get("oai-authenticated-user-full-name-encoding") ===
-      "percent-encoded-utf-8"
-      ? decodeURIComponent(encodedFullName)
-      : null;
-
-  const displayName = fullName ?? email;
-  // ...
-}
-```
-
-## Optional Dispatch-Owned ChatGPT Sign-In
-
-Import the ready-to-use helpers from `app/chatgpt-auth.ts` when the site needs
-optional or required ChatGPT sign-in:
-
-- Use `getChatGPTUser()` for optional signed-in UI.
-- Use `requireChatGPTUser(returnTo)` for server-rendered pages that should send
-  anonymous visitors through Sign in with ChatGPT.
-- Use `chatGPTSignInPath(returnTo)` and `chatGPTSignOutPath(returnTo)` for
-  browser links or actions.
-- Pass a same-origin relative `returnTo` path for the destination after sign-in
-  or sign-out. The helper validates and safely encodes it.
-- Mark protected pages with `export const dynamic = "force-dynamic"` because
-  they depend on per-request identity headers.
-
-Dispatch owns `/signin-with-chatgpt`, `/signout-with-chatgpt`, `/callback`, the
-OAuth cookies, and identity header injection. Do not implement app routes for
-those reserved paths. Routes that do not import and call the helper remain
-anonymous-compatible.
-
-SIWC establishes identity only; it does not prove workspace membership. Use the
-Sites hosting platform's access policy controls for workspace-wide restrictions,
-or enforce explicit server-side membership or allowlist checks.
-
-Use SIWC for account pages, user-specific dashboards, saved records, and write
-actions tied to the current ChatGPT user. Leave public content anonymous.
-
-## Useful Commands
-
-- `npm run dev`: start local development
-- `npm run build`: verify the vinext build output
-- `npm test`: build the starter and verify its rendered loading skeleton
-- `npm run db:generate`: generate Drizzle migrations after schema changes
-
-## Learn More
-
-- [vinext Documentation](https://github.com/cloudflare/vinext)
-- [Drizzle D1 Guide](https://orm.drizzle.team/docs/get-started/d1-new)
+기존 비공개 이력을 백업한 뒤 개인 이메일과 로컬 기기 이메일을 GitHub 비공개 이메일로 바꾸어 공개했습니다. 출처가 다른 의존성·글꼴·이미지의 권리는 각 원본 조건을 따릅니다.
